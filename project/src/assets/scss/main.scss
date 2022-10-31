@@ -1,0 +1,33 @@
+$white:     #ffffff !default;
+$lightGray: #F2F2F2 !default;
+$gray:      #737373 !default;
+$darkGray:  #3D3D3D !default; 
+$blue:      #00A4E1 !default;
+$pink:      #FF66A6 !default;
+$red:       #FF0000 !default;
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+body {
+    background-color: $white !important;
+}
+
+#app {
+    height: 100vh !important;
+}
+
+nav {
+    border-bottom: 2px solid $gray !important;
+    background-color: $white !important;
+}
+
+.navbar-brand {
+    padding-left: 25px;
+}
+
+footer {
+    border-top: 2px solid $gray !important;
+    background-color: $white !important;
+    color: $darkGray;
+    font-weight: bold;
+}
