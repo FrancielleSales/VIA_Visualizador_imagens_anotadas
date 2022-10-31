@@ -1,0 +1,350 @@
+{
+    "1": {
+        "classe": "Acostamento - Ciclista",
+        "cor": "6A5ACD"
+    },
+    "2": {
+        "classe": "Acostamento - Outros",
+        "cor": "6A5ACD"
+    },
+    "3": {
+        "classe": "Acostamento - Pedestre",
+        "cor": "6A5ACD"
+    },
+    "4": {
+        "classe": "Acostamento - Ponto de ônibus",
+        "cor": "6A5ACD"
+    },
+    "5": {
+        "classe": "Drenagem - Descida d'agua",
+        "cor": "00008B"
+    },
+    "6": {
+        "classe": "Drenagem - Entrada descida d'agua",
+        "cor": "00008B"
+    },
+    "7": {
+        "classe": "Drenagem - Meio fio",
+        "cor": "00008B"
+    },
+    "8": {
+        "classe": "Drenagem - Meio fio ini./fim",
+        "cor": "00008B"
+    },
+    "9": {
+        "classe": "Drenagem - Obras de arte corrente (OAC)",
+        "cor": "00008B"
+    },
+    "10": {
+        "classe": "Drenagem - Outros",
+        "cor": "00008B"
+    },
+    "11": {
+        "classe": "Drenagem - Sarjeta",
+        "cor": "00008B"
+    },
+    "12": {
+        "classe": "Drenagem - Sarjeta ini./fim",
+        "cor": "00008B"
+    },
+    "13": {
+        "classe": "Drenagem - Valeta",
+        "cor": "00008B"
+    },
+    "14": {
+        "classe": "Drenagem - Valeta ini./fim",
+        "cor": "00008B"
+    },
+    "15": {
+        "classe": "Faixa de dominio - Arvores",
+        "cor": "008B8B"
+    },
+    "16": {
+        "classe": "Faixa de domínio - Cerca",
+        "cor": "008B8B"
+    },
+    "17": {
+        "classe": "Faixa de domínio - Cerca ini./fim",
+        "cor": "008B8B"
+    },
+    "18": {
+        "classe": "Faixa de domínio - Construções",
+        "cor": "008B8B"
+    },
+    "19": {
+        "classe": "Faixa de domínio - Outros",
+        "cor": "008B8B"
+    },
+    "20": {
+        "classe": "Faixa de domínio - Placa (outdoor)",
+        "cor": "008B8B"
+    },
+    "21": {
+        "classe": "Faixa de domínio - Poste",
+        "cor": "008B8B"
+    },
+    "22": {
+        "classe": "Faixa de domínio - Radar",
+        "cor": "008B8B"
+    },
+    "23": {
+        "classe": "Faixa de domínio - Rede de energia",
+        "cor": "008B8B"
+    },
+    "24": {
+        "classe": "Iluminacao publica - Direita",
+        "cor": "008000"
+    },
+    "25": {
+        "classe": "Iluminacao publica - Esquerda",
+        "cor": "008000"
+    },
+    "26": {
+        "classe": "(i) Intersecção - Entrada a direita",
+        "cor": "DAA520"
+    },
+    "27": {
+        "classe": "Intersecção - Rotatória",
+        "cor": "DAA520"
+    },
+    "28": {
+        "classe": "(i) Intersecção - Saída a direita",
+        "cor": "DAA520"
+    },
+    "29": {
+        "classe": "Na faixa - Animais mortos",
+        "cor": "D2691E"
+    },
+    "30": {
+        "classe": "Na faixa - Ciclovia",
+        "cor": "D2691E"
+    },
+    "31": {
+        "classe": "Na faixa - Ciclovia ini./fim",
+        "cor": "D2691E"
+    },
+    "32": {
+        "classe": "Na faixa - Lombada",
+        "cor": "D2691E"
+    },
+    "33": {
+        "classe": "Na faixa - Sombra",
+        "cor": "D2691E"
+    },
+    "34": {
+        "classe": "Na faixa - Tacha",
+        "cor": "D2691E"
+    },
+    "35": {
+        "classe": "Na faixa - Tachão",
+        "cor": "D2691E"
+    },
+    "36": {
+        "classe": "(i) Obra de arte especial - Ponte",
+        "cor": "8B008B"
+    },
+    "37": {
+        "classe": "Pavimento - Desgaste",
+        "cor": "2F4F4F"
+    },
+    "38": {
+        "classe": "Pavimento - Enrugamento",
+        "cor": "2F4F4F"
+    },
+    "39": {
+        "classe": "Pavimento - Escorregamento",
+        "cor": "2F4F4F"
+    },
+    "40": {
+        "classe": "Pavimento - Exsudação",
+        "cor": "2F4F4F"
+    },
+    "41": {
+        "classe": "Pavimento - Outros",
+        "cor": "2F4F4F"
+    },
+    "42": {
+        "classe": "Pavimento - Panela",
+        "cor": "2F4F4F"
+    },
+    "43": {
+        "classe": "Pavimento - Remendo",
+        "cor": "2F4F4F"
+    },
+    "44": {
+        "classe": "Pavimento - Trilho de roda",
+        "cor": "2F4F4F"
+    },
+    "45": {
+        "classe": "Pavimento - Trinca",
+        "cor": "2F4F4F"
+    },
+    "46": {
+        "classe": "Seg. lateral - Guard rail",
+        "cor": "B22222"
+    },
+    "47": {
+        "classe": "Seg. lateral - Guard rail ini./fim",
+        "cor": "B22222"
+    },
+    "48": {
+        "classe": "Seg. lateral - Guarda corpo concreto",
+        "cor": "B22222"
+    },
+    "49": {
+        "classe": "Seg. lateral - Guarda corpo concreto ini./fim",
+        "cor": "B22222"
+    },
+    "50": {
+        "classe": "Seg. lateral - Guarda corpo metálico",
+        "cor": "B22222"
+    },
+    "51": {
+        "classe": "Seg. lateral - Guarda corpo metálico ini./fim",
+        "cor": "B22222"
+    },
+    "52": {
+        "classe": "Seg. lateral - New jersey",
+        "cor": "B22222"
+    },
+    "53": {
+        "classe": "Seg. lateral - New jersey ini./fim",
+        "cor": "B22222"
+    },
+    "54": {
+        "classe": "Sin. horiz. - Area de conflito",
+        "cor": "9932CC"
+    },
+    "55": {
+        "classe": "Sin. horiz. - Ciclofaixa",
+        "cor": "9932CC"
+    },
+    "56": {
+        "classe": "Sin. horiz. - Ciclofaixa ini./fim",
+        "cor": "9932CC"
+    },
+    "57": {
+        "classe": "Sin. horiz. - Contínua/Seccionada (LFO-4)",
+        "cor": "9932CC"
+    },
+    "58": {
+        "classe": "Sin. horiz. - Dupla contínua (LFO-3)",
+        "cor": "9932CC"
+    },
+    "59": {
+        "classe": "Sin. horiz. - Faixa de pedestre",
+        "cor": "9932CC"
+    },
+    "60": {
+        "classe": "Sin. horiz. - Marcas de canalização",
+        "cor": "9932CC"
+    },
+    "61": {
+        "classe": "Sin. horiz. - Marcas de canalização ini./fim",
+        "cor": "9932CC"
+    },
+    "62": {
+        "classe": "Sin. horiz. - Outros",
+        "cor": "9932CC"
+    },
+    "63": {
+        "classe": "Sin. horiz. - Simples contínua (LFO-1)",
+        "cor": "9932CC"
+    },
+    "64": {
+        "classe": "Sin. horiz. - Simples contínua (LMS-1)",
+        "cor": "9932CC"
+    },
+    "65": {
+        "classe": "Sin. horiz. - Simples seccionada (LFO-2)",
+        "cor": "9932CC"
+    },
+    "66": {
+        "classe": "Sin. horiz. - Simples seccionada (LMS-2)",
+        "cor": "9932CC"
+    },
+    "67": {
+        "classe": "Sin. horiz. - Sinalização (palavras)",
+        "cor": "9932CC"
+    },
+    "68": {
+        "classe": "Sin. horiz. - Sinalização (setas)",
+        "cor": "9932CC"
+    },
+    "69": {
+        "classe": "Sin. horiz. - Sinalização (símbolo)",
+        "cor": "9932CC"
+    },
+    "70": {
+        "classe": "(i) Sin. horiz. - Terceira faixa",
+        "cor": "9932CC"
+    },
+    "71": {
+        "classe": "Sin. horiz. - Zebrado",
+        "cor": "9932CC"
+    },
+    "72": {
+        "classe": "Sin. horiz. - Zebrado ini./fim",
+        "cor": "9932CC"
+    },
+    "73": {
+        "classe": "Sin. vert. - Advertência",
+        "cor": "1E90FF"
+    },
+    "74": {
+        "classe": "Sin. vert. - Alerta",
+        "cor": "1E90FF"
+    },
+    "75": {
+        "classe": "Sin. vert. - Indicação",
+        "cor": "1E90FF"
+    },
+    "76": {
+        "classe": "Sin. vert. - Outros",
+        "cor": "1E90FF"
+    },
+    "77": {
+        "classe": "Sin. vert. - Regulamentação",
+        "cor": "1E90FF"
+    },
+    "78": {
+        "classe": "Sobre a pista - Arvores",
+        "cor": "808000"
+    },
+    "79": {
+        "classe": "Sobre a pista - Outros",
+        "cor": "808000"
+    },
+    "80": {
+        "classe": "Sobre a pista - Passarela de pedestres",
+        "cor": "808000"
+    },
+    "81": {
+        "classe": "Sobre a pista - Painel de Mensagem Variável",
+        "cor": "808000"
+    },
+    "82": {
+        "classe": "Sobre a pista - Pórtico outros",
+        "cor": "808000"
+    },
+    "83": {
+        "classe": "Sobre a pista - Pórtico sinalização",
+        "cor": "808000"
+    },
+    "84": {
+        "classe": "Sobre a pista - Radar",
+        "cor": "808000"
+    },
+    "85": {
+        "classe": "Sobre a pista - Rede de energia",
+        "cor": "808000"
+    },
+    "86": {
+        "classe": "Sobre a pista - Semáforo",
+        "cor": "808000"
+    },
+    "87": {
+        "classe": "Sobre a pista - Viadutos",
+        "cor": "808000"
+    }
+}
