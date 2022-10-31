@@ -25,9 +25,61 @@ nav {
     padding-left: 25px;
 }
 
+.card {
+    border-radius: 2px !important;
+    border: 0.5px $lightGray;
+    box-shadow: 5px 5px 10px 0px $lightGray;
+}
+
+.card-header {
+    text-align: center !important;
+    color: $darkGray;
+    color: $darkGray;
+}
+
+.card-body {
+    color: $darkGray;
+    font-weight: bold;
+    text-align: center;
+}
+
 footer {
     border-top: 2px solid $gray !important;
     background-color: $white !important;
     color: $darkGray;
+    font-weight: bold;
+}
+
+.btn {
+    width: 350px;
+    text-align: center;
+    padding: 8px 10px;
+    border: 1px solid $gray;
+    border-radius: 5px;
+    background-color: $white;
+    font-size: 16px;
+}
+
+.btn-primary {
+    width: 120px;
+    text-align: center;
+    padding: 8px 10px;
+    border: 1px solid $gray;
+    border-radius: 5px;
+    background-color: $lightGray;
+    color: $darkGray;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    width: 120px;
+    text-align: center;
+    padding: 8px 10px;
+    border: 1px solid $darkGray;
+    border-radius: 5px;
+    background-color: $gray;
+    color: $lightGray;
+    font-size: 18px;
     font-weight: bold;
 }
