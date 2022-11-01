@@ -75,15 +75,6 @@ footer {
     justify-content: center;
 }
 
-.zoom {
-    background: $white;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    margin-top: 10px;
-    margin-bottom: 10px; 
-}
-
 .btn-primary {
     width: 120px;
     text-align: center;
@@ -108,11 +99,29 @@ footer {
     font-weight: bold;
 }
 
-.newAnotationButton {
+.zoom {
     background: $white;
     display: flex;
     justify-content: center;
     align-items: center; 
     margin-top: 10px;
+    margin-bottom: 10px; 
+}
+
+.newAnotationButton {
+    background: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 60px;
     margin-bottom: 60px;     
+}
+
+.hideOrSohowAnnotations {
+    background: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 10px;
+    margin-bottom: 10px; 
 }

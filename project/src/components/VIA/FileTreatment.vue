@@ -56,9 +56,13 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="newAnotationButton">       
-        <button v-on:click="createNewAnotation()" id="newAnotation" class="btn-primary">Criar</button>
+        <div class="newAnotationButton">       
+            <button v-on:click="createNewAnotation()" id="newAnotation" class="btn-primary">Criar</button>
+        </div>
+        <div class="hideOrSohowAnnotations">
+            <button v-on:click="hideAnnotations()" id="hideAnnotations" class="btn-primary">Esconder anotações</button>
+            <button v-on:click="showAnnotations()" id="showAnnotations" class="btn-primary">Mostrar anotações</button>
+        </div>
     </div>
 </template>
 
@@ -318,6 +322,38 @@ export default {
                 scaleX: scaleFactor,
                 scaleY: scaleFactor
             });
+            canvas.renderAll();
+        },
+
+        hideAnnotations() {
+            let canvas = this.canvasObj;
+            var objects = canvas.getObjects();
+            console.log("------------------");
+            console.log(objects.length);
+
+            for (var i = 0; i < objects.length; i++) {
+                console.log(objects[i]);
+                objects[i].set({
+                    opacity: 0
+                });
+                console.log(objects[i]);
+            }
+            canvas.renderAll();
+        },
+
+        showAnnotations(){
+            let canvas = this.canvasObj;
+            var objects = canvas.getObjects();
+            console.log("------------------");
+            console.log(objects.length);
+
+            for (var i = 0; i < objects.length; i++) {
+                console.log(objects[i]);
+                objects[i].set({
+                    opacity: 1
+                });
+                console.log(objects[i]);
+            }
             canvas.renderAll();
         },
 
