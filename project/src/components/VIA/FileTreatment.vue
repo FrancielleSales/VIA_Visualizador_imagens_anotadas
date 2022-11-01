@@ -25,11 +25,40 @@
         <button v-on:click="submitFiles()" class="btn-primary">Submit</button>
     </div>
     <div class="canva">
-        <canvas ref="canvas" width="2000" height="2000"></canvas>
+        <canvas ref="canvas" width="1920" height="1080"></canvas>
     </div>
     <div class="zoom">
         <button v-on:click="imageZoomin()" id="zoomin" class="btn-primary">+</button>
         <button v-on:click="imageZoomout()" id="zoomout" class="btn-primary">-</button>
+    </div>
+    <div class="container flex-grow-1 mt-5 mb-5 py-2">
+        <div class="col-md-4 col-sm-12 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h6>Criar nova anotação</h6>
+                </div>
+                <div class="card-body">
+                    <!--idBoundingBox-->
+                    <label for="idBoundingBox">C1 - x:</label><br>
+                    <input type="text" id="idBoundingBox" name="idBoundingBox"><br>
+
+                    <!--C1 point-->
+                    <label for="c1x">C1 - x:</label><br>
+                    <input type="number" id="c1x" name="c1x"><br>
+                    <label for="c1y">C1 - y:</label><br>
+                    <input type="number" id="c1y" name="c1y"><br>
+
+                    <!--C2 point-->
+                    <label for="c2x">C2 - x:</label><br>
+                    <input type="number" id="c2x" name="c2x"><br>
+                    <label for="c2y">C2 - y:</label><br>
+                    <input type="number" id="c2y" name="c2y"><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newAnotationButton">       
+        <button v-on:click="createNewAnotation()" id="newAnotation" class="btn-primary">Criar</button>
     </div>
 </template>
 
@@ -61,6 +90,7 @@ export default {
             currentImageIndex: null,
         };
     },
+
     mounted() {
         this.canvas = this.$refs.canvas;
         this.canvasObj = new fabric.Canvas(this.canvas);
@@ -69,6 +99,46 @@ export default {
         this.setCanvasSize({ height: this.canvasHeight, width: this.canvasWidth });
     },
     methods: {
+
+        submitFiles() {
+            if (this.fileConfig == null) {
+                alert("Selecione arquivo");
+                return;
+            }
+            if (this.imageFile == null) {
+                alert("Selecione imagem");
+                return;
+            }
+            if (this.imageFileName.substr(0, this.imageFileName.lastIndexOf(".")) !=
+                this.configFileName.substr(0, this.configFileName.lastIndexOf("."))) {
+                alert("O arquivo selecionado e imagem nao correspondem");
+                return;
+            }
+
+            this.images.push({
+                file: this.imageFile,
+                name: this.imageFileName,
+                points: [],
+            });
+
+            this.handleImageConfigs();
+
+            this.fileConfig = null;
+            this.imageFile = null;
+
+            this.handleImgSelection(0);
+        },
+
+        imageZoomin() {
+            this.canvasScale *= 1.25;
+            this.handleImgSelection(this.currentImageIndex);
+        },
+
+        imageZoomout() {
+            this.canvasScale /= 1.25;
+            this.handleImgSelection(this.currentImageIndex);
+        },
+
         async handleFileUpload(event) {
             const file = event.target.files[0];
 
@@ -93,96 +163,55 @@ export default {
         },
 
         handleImageConfigs() {
-            // Process file with points
-            const indexLastImg = this.images.length - 1;
-            var lines = this.fileConfig.split('\n');
+                // Process file
+                const indexLastImg = this.images.length - 1;
+                var lines = this.fileConfig.split('\n');
 
-            lines.forEach(l => {
-                if (l != '') {
-                    var values = l.split(' ');
-                    if (values.length != 6) {
-                        console.log("Line error: " + l);
-                    } else {
-                        console.log(values);
-                        var point = {};
-                        point.anotation = this.classFile[values[0]].classe;
-                        point.color = '#' + this.classFile[values[0]].cor;
-                        point.anotationCode = values[0];
-                        point.x1 = parseInt(values[1]);
-                        point.y1 = parseInt(values[2]);
-                        point.x2 = parseInt(values[3]);
-                        point.y2 = parseInt(values[4]);
-                        this.images[indexLastImg].points.push(point);
+                lines.forEach(l => {
+                    if (l != '') {
+                        var values = l.split(' ');
+                        if (values.length != 6) {
+                            console.log("Line error: " + l);
+                        } else {
+                            console.log(values);
+                            var point = {};
+                            point.anotation = this.classFile[values[0]].classe;
+                            point.color = '#' + this.classFile[values[0]].cor;
+                            point.anotationCode = values[0];
+                            point.x1 = parseInt(values[1]);
+                            point.y1 = parseInt(values[2]);
+                            point.x2 = parseInt(values[3]);
+                            point.y2 = parseInt(values[4]);
+                            this.images[indexLastImg].points.push(point);
+                        }
                     }
-                }
-            });
- 
-        },
-
-        removeCanvasObjects(canvas) {
-            var objects = canvas.getObjects();
-            for (var i = 0; i < objects.length; i++) {
-                canvas.remove(objects[i]);
-            }
-        },
-
-        setCanvasSize(canvasSizeObject) {
-            let canvas = this.canvasObj;
-            canvas.setWidth(canvasSizeObject.width);
-            canvas.setHeight(canvasSizeObject.height);
-        },
-
-        setCanvasZoom() {
-            let canvas = this.canvasObj;
-            this.canvasWidth = this.canvasOriginalWidth * this.canvasScale;
-            this.canvasHeight = this.canvasOriginalHeight * this.canvasScale;
-
-            canvas.setWidth(this.canvasWidth);
-            canvas.setHeight(this.canvasHeight);
-        },
-
-        setCanvasBackgroundImageUrl(url) {
-            let canvas = this.canvasObj;
-            if (url && url.length > 0) {
-                fabric.Image.fromURL(url, function (img) {
-                    bgImage = img;
-                    scaleAndPositionImage();
                 });
-            } else {
-                canvas.backgroundImage = 0;
-                canvas.setBackgroundImage('', canvas.renderAll.bind(canvas));
-
-                canvas.renderAll();
-            }
         },
 
-        scaleAndPositionImage(bgImage) {
-            let canvas = this.canvasObj;
-            this.setCanvasZoom();
+        createNewAnotation() {
+            const indexLastImg = this.images.length - 1;
 
-            var canvasAspect = this.canvasWidth / this.canvasHeight;
-            var imgAspect = bgImage.width / bgImage.height;
-            var left, top, scaleFactor;
+            let id = document.getElementById("idBoundingBox").value;
+            let c1x = Number(document.getElementById("c1x").value);
+            let c1y = Number(document.getElementById("c1y").value);
+            let c2x = Number(document.getElementById("c2x").value);
+            let c2y = Number(document.getElementById("c2y").value);
 
-            if (canvasAspect >= imgAspect) {
-                var scaleFactor = this.canvasWidth / bgImage.width;
-                left = 0;
-                top = -((bgImage.height * scaleFactor) - this.canvasHeight) / 2;
-            } else {
-                var scaleFactor = this.canvasHeight / bgImage.height;
-                top = 0;
-                left = -((bgImage.width * scaleFactor) - this.canvasWidth) / 2;
+            if (id != null & c1x != null & c1y != null & c2x != null & c2y != null ) {
+                var point = {};
+                point.anotation = this.classFile[id].classe;
+                point.color = '#' + this.classFile[id].cor;
+                point.anotationCode = id;
+                point.x1 = c1x;
+                point.y1 = c1y;
+                point.x2 = c2x;
+                point.y2 = c2y;
+                this.images[indexLastImg].points.push(point);
+
+                console.log(point);
+
+                this.handleImgSelection(0);
             }
-
-            canvas.setBackgroundImage(bgImage, canvas.renderAll.bind(canvas), {
-                top: top,
-                left: left,
-                originX: 'left',
-                originY: 'top',
-                scaleX: scaleFactor,
-                scaleY: scaleFactor
-            });
-            canvas.renderAll();
         },
 
         handleImgSelection(imageIndex) {
@@ -233,44 +262,71 @@ export default {
             this.canvasObj.renderAll();
         },
 
-        submitFiles() {
-            if (this.fileConfig == null) {
-                alert("Selecione arquivo");
-                return;
+        setCanvasBackgroundImageUrl(url) {
+            let canvas = this.canvasObj;
+            if (url && url.length > 0) {
+                fabric.Image.fromURL(url, function (img) {
+                    bgImage = img;
+                    scaleAndPositionImage();
+                });
+            } else {
+                canvas.backgroundImage = 0;
+                canvas.setBackgroundImage('', canvas.renderAll.bind(canvas));
+
+                canvas.renderAll();
             }
-            if (this.imageFile == null) {
-                alert("Selecione imagem");
-                return;
-            }
-            if (this.imageFileName.substr(0, this.imageFileName.lastIndexOf(".")) !=
-                this.configFileName.substr(0, this.configFileName.lastIndexOf("."))) {
-                alert("O arquivo selecionado e imagem nao correspondem");
-                return;
+        },
+
+        setCanvasZoom() {
+            let canvas = this.canvasObj;
+            this.canvasWidth = this.canvasOriginalWidth * this.canvasScale;
+            this.canvasHeight = this.canvasOriginalHeight * this.canvasScale;
+
+            canvas.setWidth(this.canvasWidth);
+            canvas.setHeight(this.canvasHeight);
+        },
+
+        setCanvasSize(canvasSizeObject) {
+            let canvas = this.canvasObj;
+            canvas.setWidth(canvasSizeObject.width);
+            canvas.setHeight(canvasSizeObject.height);
+        },
+
+        scaleAndPositionImage(bgImage) {
+            let canvas = this.canvasObj;
+            this.setCanvasZoom();
+
+            var canvasAspect = this.canvasWidth / this.canvasHeight;
+            var imgAspect = bgImage.width / bgImage.height;
+            var left, top, scaleFactor;
+
+            if (canvasAspect >= imgAspect) {
+                var scaleFactor = this.canvasWidth / bgImage.width;
+                left = 0;
+                top = -((bgImage.height * scaleFactor) - this.canvasHeight) / 2;
+            } else {
+                var scaleFactor = this.canvasHeight / bgImage.height;
+                top = 0;
+                left = -((bgImage.width * scaleFactor) - this.canvasWidth) / 2;
             }
 
-            this.images.push({
-                file: this.imageFile,
-                name: this.imageFileName,
-                points: [],
+            canvas.setBackgroundImage(bgImage, canvas.renderAll.bind(canvas), {
+                top: top,
+                left: left,
+                originX: 'left',
+                originY: 'top',
+                scaleX: scaleFactor,
+                scaleY: scaleFactor
             });
-
-            this.handleImageConfigs();
-
-            this.fileConfig = null;
-            this.imageFile = null;
-
-            this.handleImgSelection(0);
+            canvas.renderAll();
         },
 
-        imageZoomin() {
-            this.canvasScale *= 1.25;
-            this.handleImgSelection(this.currentImageIndex);
-        },
-
-        imageZoomout() {
-            this.canvasScale /= 1.25;
-            this.handleImgSelection(this.currentImageIndex);
-        },
+        removeCanvasObjects(canvas) {
+            var objects = canvas.getObjects();
+            for (var i = 0; i < objects.length; i++) {
+                canvas.remove(objects[i]);
+            }
+        }
     }
 }
 </script>

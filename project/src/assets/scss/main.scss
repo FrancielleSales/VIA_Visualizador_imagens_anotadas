@@ -107,3 +107,12 @@ footer {
     font-size: 18px;
     font-weight: bold;
 }
+
+.newAnotationButton {
+    background: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 10px;
+    margin-bottom: 60px;     
+}
