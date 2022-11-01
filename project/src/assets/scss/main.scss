@@ -60,6 +60,30 @@ footer {
     font-size: 16px;
 }
 
+.submit {
+    background: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 60px;
+}
+
+.canva {
+    background: $lightGray;
+    display: flex;
+    justify-content: center;
+}
+
+.zoom {
+    background: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 10px;
+    margin-bottom: 10px; 
+}
+
 .btn-primary {
     width: 120px;
     text-align: center;
