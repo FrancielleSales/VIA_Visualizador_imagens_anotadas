@@ -1,2 +1,7 @@
-# VIa_Visualizador_imagens_anotadas
-Recebe uma imagem de uma rodovia e um arquivo .txt com pontos que formam um retângulo e um label que deve ser adicionado na imagem
+# VIA
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/100395899/199307455-e88d5cd3-441a-45d7-886c-b3d01358f21a.png" width="1100" height="350">
+</p>
+
+> Visualizador de imagens anotadas, utilizando vue.js, bootstrap-vue e fabric
